@@ -125,7 +125,7 @@ function handleClick(evt) {
 
   // place piece in board and add to HTML table
   board[y][x] = currPlayer
-  console.log(board);
+
   // TODO: add line to update in-memory board
   placeInTable(y, x);
 
@@ -142,7 +142,7 @@ function handleClick(evt) {
 
   // switch players
   // TODO: switch currPlayer 1 <-> 2
-    currPlayer = currPlayer === 1? 2 : 1
+    currPlayer = currPlayer === 1 ? 2 : 1
 
 }
 
@@ -154,6 +154,7 @@ function checkForWin() {
     //  - cells: list of four (y, x) cells
     //  - returns true if all are legal coordinates & all match currPlayer
 
+    // takes win types and checks if currPlayer has match for any win type
     return cells.every(
       ([y, x]) =>
         y >= 0 &&
@@ -166,13 +167,20 @@ function checkForWin() {
 
   // TODO: read and understand this code. Add comments to help you.
 
+
+  // scan every row and column
   for (let y = 0; y < HEIGHT; y++) {
     for (let x = 0; x < WIDTH; x++) {
+      // horizontal win if on same row four columns next to each other match
       let horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
+      // vertical win if on same column for rows next to each other match
       let vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
+      // diagonal right win if match as rows and columns increment up
       let diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
+      // diagonal left win if match as rows increment up and columns decrement
       let diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
-
+      
+      // if any type of win is found return true
       if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
         return true;
       }
