@@ -36,16 +36,13 @@ function makeBoard() {
   let row = []; 
   
   for(i=0; i<HEIGHT; i++) {
-  //   let row = 
-  //   board.push(row);
-  // }
-  // for(j=0; j<WIDTH; j++) {
-  //   row.push(null);
-  // }
-  // console.log(board[0]=== board[1]);
-
-  // return board;
-
+    let row = [];
+    board.push(row);
+    for(j=0; j<WIDTH; j++) {
+      row.push(null);
+    }
+  }
+  return board;
 }
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
