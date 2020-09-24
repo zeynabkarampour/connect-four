@@ -33,7 +33,7 @@ let board = []; // array of rows, each row is array of cells  (board[y][x])
 
 function makeBoard() {
   // TODO: set "board" to empty HEIGHT x WIDTH matrix array
-  let row = [];
+  let row = []; 
   
   for(i=0; i<HEIGHT; i++) {
     board.push(row);
@@ -41,7 +41,7 @@ function makeBoard() {
   for(j=0; j<WIDTH; j++) {
     row.push(null);
   }
-  console.log(board);
+  //console.log(board);
 
   return board;
 
@@ -51,20 +51,20 @@ function makeBoard() {
 
 function makeHtmlBoard() {
   // TODO: get "htmlBoard" variable from the item in HTML w/ID of "board"
-
+       let htmlBoard = document.getElementById("board");
   // TODO: add comment for this code
-  let top = document.createElement("tr");
-  top.setAttribute("id", "column-top");
-  top.addEventListener("click", handleClick);
+  let top = document.createElement("tr"); // making row in table 
+  top.setAttribute("id", "column-top");   //  id for first row is "column-top"
+  top.addEventListener("click", handleClick); // trigger row by an event ( the event is a click)
 
   for (let x = 0; x < WIDTH; x++) {
-    let headCell = document.createElement("td");
+    let headCell = document.createElement("td"); // creating each cell in  Head row ( Play Area)
     headCell.setAttribute("id", x);
     top.append(headCell);
   }
   htmlBoard.append(top);
 
-  // TODO: add comment for this code
+  // TODO: add comment for this code // Make the Actual board
   for (let y = 0; y < HEIGHT; y++) {
     const row = document.createElement("tr");
     for (let x = 0; x < WIDTH; x++) {
@@ -80,8 +80,20 @@ function makeHtmlBoard() {
 
 function findSpotForCol(x) {
   // TODO: write the real version of this, rather than always returning 0
-  return 0;
+  for( let y = HEIGHT - 1 ; y >= 0 ; y-- ){
+    console.log("Board" , board)
+    console.log( "Y " + y); 
+    console.log( "X " + x); 
+    console.log( "board[y][x] " + board[y][x]); 
+    if( ! board[y][x]){
+      return y;
+    }
+  }
+ 
+  return null;
 }
+
+
 
 /** placeInTable: update DOM to place piece into HTML table of board */
 
