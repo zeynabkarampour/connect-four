@@ -36,14 +36,15 @@ function makeBoard() {
   let row = []; 
   
   for(i=0; i<HEIGHT; i++) {
-    board.push(row);
-  }
-  for(j=0; j<WIDTH; j++) {
-    row.push(null);
-  }
-  //console.log(board);
+  //   let row = 
+  //   board.push(row);
+  // }
+  // for(j=0; j<WIDTH; j++) {
+  //   row.push(null);
+  // }
+  // console.log(board[0]=== board[1]);
 
-  return board;
+  // return board;
 
 }
 
@@ -81,10 +82,10 @@ function makeHtmlBoard() {
 function findSpotForCol(x) {
   // TODO: write the real version of this, rather than always returning 0
   for( let y = HEIGHT - 1 ; y >= 0 ; y-- ){
-    console.log("Board" , board)
-    console.log( "Y " + y); 
-    console.log( "X " + x); 
-    console.log( "board[y][x] " + board[y][x]); 
+    // console.log("Board" , board)
+    // console.log( "Y " + y); 
+    // console.log( "X " + x); 
+    // console.log( "board[y][x] " + board[y][x]); 
     if( ! board[y][x]){
       return y;
     }
